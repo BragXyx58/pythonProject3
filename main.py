@@ -1,5 +1,6 @@
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
+
 
 def convert_currency():
     amount = float(entry_amount.get())
@@ -16,7 +17,8 @@ def convert_currency():
         return
 
     label_result.config(text=f"Результат: {result:.2f} {selected_currency}")
-
+def test():
+    messagebox.showinfo('Інформація', 'Обчислення завершене')
 root = Tk()
 root.geometry('400x300')
 root.title("Калькулятор валют")
@@ -28,5 +30,6 @@ currency = ttk.Combobox(root, values=["USD", "EUR", "CZK"])
 currency.pack()
 Button(root, text="Конвертировать", command=convert_currency).pack()
 label_result = Label(root, text="Результат: ")
+Button(root, text="Test", command = test).pack()
 label_result.pack()
 root.mainloop()
